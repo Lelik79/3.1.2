@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">3.1.1</string>
+    <string name="textViewInputNumbers"></string>
+    <string name="textViewButton1">1</string>
+    <string name="textViewButton2">2</string>
+    <string name="textViewButton3">3</string>
+    <string name="textViewButton4">4</string>
+    <string name="textViewButton5">5</string>
+    <string name="textViewButton6">6</string>
+    <string name="textViewButton7">7</string>
+    <string name="textViewButton8">8</string>
+    <string name="textViewButton9">9</string>
+    <string name="textViewButton0">0</string>
+    <string name="textViewButtonDot">.</string>
+    <string name="textViewButtonC">C</string>
+    <string name="textViewButtonPlusMinus">+/-</string>
+    <string name="textViewButtonPercent">%</string>
+
+    <string name="textViewButtonDivision">/</string>
+    <string name="textViewButtonMulti">X</string>
+    <string name="textViewButtonMinus">-</string>
+    <string name="textViewButtonPlus">+</string>
+    <string name="textViewButtonEqual">=</string>
+    <string name="app_error">Ошибка: деление на 0</string>
+</resources>
