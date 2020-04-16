@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                screen.setText("");
+                screen.setText("0");
                 num1 = 0F;
                 num2 = 0F;
             }
@@ -61,12 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 String notDoubleNull = screen.getText().toString();
                 if (notDoubleNull.contains(getString(R.string.textViewButtonDot))) {
                     screen.append(getString(R.string.textViewButton0));
-                }
-                else {
+                } else {
                     if (notDoubleNull.startsWith(getString(R.string.textViewButton0))) {
                         screen.append(getString(R.string.textViewButtonDot));
-                    }
-                    else {
+                    } else {
                         screen.append(getString(R.string.textViewButton0));
                     }
                 }
@@ -89,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 String notDoubleDot = screen.getText().toString();
                 if (notDoubleDot.contains(getString(R.string.textViewButtonDot))) {
                     v.setClickable(false);
-                }
-                else {
+                } else {
                     screen.append(getString(R.string.textViewButtonDot));
                 }
             }
@@ -104,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 String plus = getString(R.string.textViewButtonPlus) + plusOrMinus;
                 if (Float.valueOf(screen.getText().toString()) > 0) {
                     screen.setText(minus);
-                }
-                else {
+                } else {
                     screen.setText(plus.substring(1));
                 }
             }
@@ -114,51 +110,67 @@ public class MainActivity extends AppCompatActivity {
         buttonPercent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = Float.valueOf(screen.getText().toString())/100;
-         //       screen.setText(num1.toString());
+                num1 = Float.valueOf(screen.getText().toString()) / 100;
             }
         });
 
         buttonAddition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operator = "+";
-                num1 = Float.valueOf(screen.getText().toString());
-                screen.setText("");
+                if (screen.getText().length() != 0) {
+                    operator = "+";
+                    num1 = Float.valueOf(screen.getText().toString());
+                    screen.setText("");
+                } else {
+                    operator = "+";
+                }
             }
         });
 
         buttonSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operator = "-";
-                num1 = Float.valueOf(screen.getText().toString());
-                screen.setText("");
+                if (screen.getText().length() != 0) {
+                    operator = "-";
+                    num1 = Float.valueOf(screen.getText().toString());
+                    screen.setText("");
+                } else {
+                    operator = "-";
+                }
             }
         });
 
         buttonMultiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operator = "×";
-                num1 = Float.valueOf(screen.getText().toString());
-                screen.setText("");
+                if (screen.getText().length() != 0) {
+                    operator = "×";
+                    num1 = Float.valueOf(screen.getText().toString());
+                    screen.setText("");
+                } else {
+                    operator = "×";
+                }
             }
         });
 
         buttonDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operator = "÷";
-                num1 = Float.valueOf(screen.getText().toString());
-                screen.setText("");
+                if (screen.getText().length() != 0) {
+                    operator = "÷";
+                    num1 = Float.valueOf(screen.getText().toString());
+                    screen.setText("");
+                } else {
+                    operator = "÷";
+                }
             }
         });
 
         buttonEqually.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operator != null) {
+
+                if (operator != null && screen.getText().length() != 0) {
                     num2 = Float.valueOf(screen.getText().toString());
                     switch (operator) {
                         case "+":
@@ -177,17 +189,16 @@ public class MainActivity extends AppCompatActivity {
                             if (num2 != 0F) {
                                 result = num1 / num2;
                                 screen.setText(result.toString());
-                            }
-                            else {
+                            } else {
                                 screen.setText(getString(R.string.app_error));
                             }
                             break;
                     }
                     num1 = result;
-                }
-                else {
-                    num1 = Float.valueOf(screen.getText().toString());
+                } else {
+                    //   num1 = Float.valueOf(screen.getText().toString());
                     screen.setText(num1.toString());
+                    num1 = result;
                 }
             }
         });
